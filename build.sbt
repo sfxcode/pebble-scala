@@ -24,7 +24,7 @@ lazy val docs = (project in file("docs"))
     ghpagesNoJekyll := true,
     git.remoteRepo := "git@github.com:sfxcode/pebble-scala.git",
     Compile / paradoxMaterialTheme ~= {
-      _.withRepository(uri("https://github.com/sfxcode/simple-mongo"))
+      _.withRepository(uri("https://github.com/sfxcode/pebble-scala"))
     },
     (Compile / paradoxMarkdownToHtml / excludeFilter) := (Compile / paradoxMarkdownToHtml / excludeFilter).value ||
           ParadoxPlugin.InDirectoryFilter((Compile / paradox / sourceDirectory).value / "includes")
