@@ -1,0 +1,12 @@
+<html>
+<head>
+    <title>{{ info.name }}</title>
+</head>
+<body>
+<ul>
+{% for value in list %}
+    <li>{{ value }}</li>
+{% endfor %}
+</ul>
+</body>
+</html>
