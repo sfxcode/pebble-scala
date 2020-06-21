@@ -17,6 +17,13 @@ Adds first class scala support to Pebble.
 ## Version
 Scala Version is 2.13.x / 2.12.x.
 
+## SBT
+
+```
+resolvers ++= Seq(Resolver.jcenterRepo)
+libraryDependencies += "com.sfxcode.templating" %% "pebble-scala" % "0.8.1"
+```
+
 ## Usage
 
 1. Write Template
