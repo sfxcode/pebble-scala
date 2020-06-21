@@ -1,0 +1,23 @@
+
+# See http://about.travis-ci.org/docs/user/build-configuration/
+dist: bionic
+
+language: scala
+
+scala:
+  - 2.12.11
+  - 2.13.2
+
+branches:
+  only:
+    - master
+notifications:
+  email:
+    recipients:
+      - tom@sfxcode.com
+jdk:
+  - openjdk11
+  - openjdk8
+
+
+
