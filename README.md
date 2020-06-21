@@ -41,13 +41,13 @@ Scala Version is 2.13.x / 2.12.x.
 Scala map with global engine parameter is optional ...
 
 ```scala
- val Engine: ScalaPebbleEngine = ScalaPebbleEngine(globalContext = Map("header" -> "scala-pebble"))
+ val Engine: ScalaPebbleEngine = ScalaPebbleEngine(globalContext = Map("header" -> "pebble-scala"))
 ```
 
 3. Evaluate
 
 ```
- val context   = Map("list" -> List("Element1", "Element2"))
+ val context   = Map("list" -> List("Resolver for Scala values", "iterate over scala collections"))
  val evaluated = Engine.evaluateToString("templates/template.peb", context)
 ```
 
@@ -60,8 +60,8 @@ Scala map with global engine parameter is optional ...
 </head>
 <body>
 <ul>
-    <li>Element1</li>
-    <li>Element2</li>
+    <li>Resolver for Scala values</li>
+    <li>iterate over scala collections</li>
 </ul>
 </body>
 </html>
