@@ -1,0 +1,6 @@
+{% extends 'templates/block/master.peb' %}
+{% block masterContent %}
+Base
+{% block myCustomBlock %}
+        {% endblock %}
+{% endblock %}

@@ -1,0 +1,19 @@
+<html>
+<head>
+
+</head>
+<body>
+{% if list is empty %}
+<title>emptyList</title>
+{% endif %}
+{% if map is empty %}
+<title>emptyMap</title>
+{% endif %}
+{% if option is empty %}
+<title>emptyOption</title>
+{% endif %}
+{% if buffer is empty %}
+<title>emptyBuffer</title>
+{% endif %}
+</body>
+</html>

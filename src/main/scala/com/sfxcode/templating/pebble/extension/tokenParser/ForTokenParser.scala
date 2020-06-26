@@ -8,6 +8,7 @@ import com.mitchellbosecke.pebble.tokenParser.TokenParser
 import com.sfxcode.templating.pebble.extension.node.ScalaForNode
 
 case class ForTokenParser() extends TokenParser {
+
   override def parse(token: Token, parser: Parser): RenderableNode = {
     val stream     = parser.getStream
     val lineNumber = token.getLineNumber
@@ -49,5 +50,5 @@ case class ForTokenParser() extends TokenParser {
     ScalaForNode(lineNumber, iterationVariable, iterable, body, elseBody)
   }
 
-  override def getTag = "for"
+  override def getTag: String = "for"
 }

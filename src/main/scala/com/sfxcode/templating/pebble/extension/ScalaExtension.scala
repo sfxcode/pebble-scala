@@ -11,6 +11,7 @@ import com.sfxcode.templating.pebble.extension.test.{EmptyTest, IterableTest, Ma
 import com.sfxcode.templating.pebble.extension.tokenParser.ForTokenParser
 
 case class ScalaExtension(globalContext: Map[String, AnyRef] = Map()) extends AbstractExtension {
+
   override def getGlobalVariables: util.Map[String, AnyRef] = globalContext.asJava
 
   override def getAttributeResolver: util.List[AttributeResolver] =

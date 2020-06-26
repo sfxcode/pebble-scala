@@ -3,6 +3,10 @@
 
 ## Versions
 
+### 0.8.2
+* added Nil in EmptyTest
+* Scala 2.12.13
+
 ### 0.8.1
 * specs updates
 * CHANGES.md edited

@@ -23,6 +23,7 @@ case class EmptyTest() extends Test {
       case map: util.Map[_, _]     => map.isEmpty
       case it: Iterator[_]         => it.isEmpty
       case map: Map[_, _]          => map.isEmpty
+      case Nil                     => true
       case _: Any                  => false
       case _                       => true
     }

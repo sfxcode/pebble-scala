@@ -27,13 +27,14 @@ case class ScalaForNode(
     if (iterableEvaluation != null) {
 
       iterable = this.toIterable(iterableEvaluation)
-      if (iterable == null)
+      if (iterable == null) {
         throw new PebbleException(
           null,
           "Not an iterable object. Value = [" + iterableEvaluation.toString + "]",
           this.getLineNumber,
           self.getName
         )
+      }
       val iterator: java.util.Iterator[_] = iterable.iterator
       if (iterator.hasNext) {
         val scopeChain: ScopeChain = context.getScopeChain

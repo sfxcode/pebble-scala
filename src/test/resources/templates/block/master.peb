@@ -1,0 +1,1 @@
+{% block masterContent %} Master {% endblock %}
