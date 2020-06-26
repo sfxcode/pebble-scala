@@ -21,8 +21,17 @@ Scala Version is 2.13.x / 2.12.x.
 
 ```
 resolvers ++= Seq(Resolver.jcenterRepo)
-libraryDependencies += "com.sfxcode.templating" %% "pebble-scala" % "0.8.1"
+libraryDependencies += "com.sfxcode.templating" %% "pebble-scala" % "0.8.2"
 ```
+
+## Travis
+
+[![Build Status](https://travis-ci.org/sfxcode/pebble-scala.svg?branch=master)](https://travis-ci.org/sfxcode/pebble-scala)
+
+## Download
+
+[ ![Download](https://api.bintray.com/packages/sfxcode/maven/pebble-scala/images/download.svg) ](https://bintray.com/sfxcode/maven/pebble-scala/_latestVersion)
+
 
 ## Usage
 
