@@ -5,7 +5,7 @@ name := "pebble-scala"
 
 organization := "com.sfxcode.templating"
 
-crossScalaVersions := Seq("2.13.3", "2.12.11")
+crossScalaVersions := Seq("2.13.3", "2.12.12")
 
 scalaVersion := crossScalaVersions.value.head
 
@@ -19,7 +19,7 @@ lazy val docs = (project in file("docs"))
   .enablePlugins(GhpagesPlugin)
   .settings(
     name := "pebble scala docs",
-    scalaVersion := "2.13.2",
+    scalaVersion := "2.13.3",
     publish / skip := true,
     ghpagesNoJekyll := true,
     git.remoteRepo := "git@github.com:sfxcode/pebble-scala.git",
@@ -36,7 +36,7 @@ resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repos
 
 // Test
 
-libraryDependencies += "org.specs2" %% "specs2-core" % "4.10.0" % Test
+libraryDependencies += "org.specs2" %% "specs2-core" % "4.10.1" % Test
 
 libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.3" % Test
 

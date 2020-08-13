@@ -20,17 +20,15 @@ case class ScalaPebbleEngine(useStringLoader: Boolean = false, globalContext: Ma
   private var engine: Option[PebbleEngine] = None
 
   def getBuilder: PebbleEngine.Builder = {
-    if (engine.isDefined) {
+    if (engine.isDefined)
       throw new IllegalAccessError("access ot builder after engine initialization is not permitted")
-    }
     PebbleBuilder
   }
 
   def getEngine: PebbleEngine = {
     if (engine.isEmpty) {
-      if (useStringLoader) {
+      if (useStringLoader)
         getBuilder.loader(new StringLoader())
-      }
       engine = Some(PebbleBuilder.build())
     }
     engine.get

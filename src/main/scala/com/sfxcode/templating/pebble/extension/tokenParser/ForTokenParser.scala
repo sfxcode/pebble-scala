@@ -34,14 +34,13 @@ case class ForTokenParser() extends TokenParser {
       elseBody = parser.subparse((tkn: Token) => tkn.test(Token.Type.NAME, "endfor"))
     }
 
-    if (stream.current.getValue == null) {
+    if (stream.current.getValue == null)
       throw new ParserException(
         null,
         "Unexpected end of template. Pebble was looking for the \"endfor\" tag",
         stream.current.getLineNumber,
         stream.getFilename
       )
-    }
 
     // skip the 'endfor' token
     stream.next
