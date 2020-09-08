@@ -3,6 +3,9 @@
 
 ## Versions
 
+### 0.8.3
+* support case classes and tuples
+
 ### 0.8.2
 * added Nil in EmptyTest
 * Scala 2.12.13
