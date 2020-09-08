@@ -1,0 +1,10 @@
+<html>
+<head>
+    <title>{{ data.aDescriptionString }}</title>
+</head>
+<body>
+<h1>{{ tuple._1 }}</h1>
+<p>{{ tuple._2 }}</p>
+<p>{{ tuple._3 }} - {{ tuple._4 }}</p>
+</body>
+</html>

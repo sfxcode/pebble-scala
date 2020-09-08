@@ -57,6 +57,31 @@ class ScalaResolverSpec extends Specification {
       Engine.evaluateToString("{{ bi }}", Map("bi" -> BigInt(42))) mustEqual "42"
       Engine.evaluateToString("{{ bd }}", Map("bd" -> BigDecimal(42.5))) mustEqual "42.5"
     }
+    
+    "evaluate scala case class in" in {
+
+      case class Foo(bar: String)
+      val result = Engine.evaluateToString("{{ caseClass.bar }}", Map("caseClass" -> Foo("FooBar")))
+      result mustEqual "FooBar"
+    }
+
+    "evaluate scala class in" in {
+
+      class Foo(val bar: String) {
+        def getFooBarString = s"Foo is $bar"
+      }
+      
+      val result = Engine.evaluateToString("{{ Class.getFooBarString }}", Map("Class" -> new Foo("FooBar")))
+      result mustEqual "Foo is FooBar"
+    }
+
+    "evaluate scala tuple in" in {
+
+      val fooBar: (String, Int, Double) = ("Test String", 1, 3.14)
+      val result = Engine.evaluateToString("{{ fooBar._1 }}: {{ fooBar._2 }}", Map("fooBar" -> fooBar))
+      result mustEqual "Test String: 1"
+    }
+
   }
 
 }
