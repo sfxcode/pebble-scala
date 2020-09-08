@@ -15,7 +15,7 @@ class PebbleEngineSpec extends Specification {
       evaluated must contain("<li>Element1</li>")
     }
 
-    "evaluate template from string and case class from context" in {
+    "evaluate template from string and case class and tuple from context" in {
 
       val someBigLongValue   : Long   = 99999L
       val otherLongValue     : Long   = 6666L
@@ -23,9 +23,13 @@ class PebbleEngineSpec extends Specification {
       val aDescriptionString : String = "This is a simple string"
 
       val data = TestCaseClass(someBigLongValue, otherLongValue, niceDoubleValue, aDescriptionString)
-      val context = Map("data" -> data)
+      val tuple = ("Wisdom is the daughter of experience", "Leonardo da Vinci", 1452, 1519)
+      val context = Map("data" -> data, "tuple" -> tuple)
       val evaluated = Engine.evaluateToString("templates/engine/basic_injection.peb", context)
       evaluated must contain("This is a simple string")
+      evaluated must contain("1452 - 1519")
+      evaluated must contain("Wisdom is the daughter of experience")
+      evaluated must contain("Leonardo da Vinci")
     }
 
   }
