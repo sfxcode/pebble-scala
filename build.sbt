@@ -36,7 +36,7 @@ resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repos
 
 // Test
 
-libraryDependencies += "org.specs2" %% "specs2-core" % "4.10.1" % Test
+libraryDependencies += "org.specs2" %% "specs2-core" % "4.10.3" % Test
 
 libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.3" % Test
 
@@ -52,7 +52,7 @@ buildInfoPackage := "com.sfxcode.templating.pebble"
 
 buildInfoOptions += BuildInfoOption.BuildTime
 
-buildInfoKeys := BuildInfoKey.ofN(name, version, scalaVersion, sbtVersion)
+buildInfoKeys ++= Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion)
 
 licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html"))
 
