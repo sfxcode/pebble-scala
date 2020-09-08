@@ -24,7 +24,10 @@ case class ScalaResolver() extends AttributeResolver {
       case option: Option[_] if option.isDefined =>
         new ResolvedAttribute(option.get)
       case anyObj: Any if anyObj.isInstanceOf[Product] =>
-        new ResolvedAttribute(anyObj.getClass.getDeclaredFields.map(_.getName).zip(anyObj.asInstanceOf[Product].productIterator.toSeq).toMap)
+        val declaredFieldsNames = anyObj.getClass.getDeclaredFields.map(_.getName)
+        val productSeq          = anyObj.asInstanceOf[Product].productIterator.toSeq
+        val map                 = declaredFieldsNames.zip(productSeq).toMap
+        resolve(map, attributeNameValue, argumentValues, args, context, filename, lineNumber)
       case _ => null
     }
 
