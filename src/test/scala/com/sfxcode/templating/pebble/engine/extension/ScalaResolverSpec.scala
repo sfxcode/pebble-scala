@@ -74,6 +74,14 @@ class ScalaResolverSpec extends Specification {
       val result = Engine.evaluateToString("{{ Class.getFooBarString }}", Map("Class" -> new Foo("FooBar")))
       result mustEqual "Foo is FooBar"
     }
+
+    "evaluate scala tuple in" in {
+
+      val fooBar: (String, Int, Double) = ("Test String", 1, 3.14)
+      val result = Engine.evaluateToString("{{ fooBar._1 }}: {{ fooBar._2 }}", Map("fooBar" -> fooBar))
+      result mustEqual "Test String: 1"
+    }
+
   }
 
 }
