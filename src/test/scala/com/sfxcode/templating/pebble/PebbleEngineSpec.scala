@@ -20,12 +20,12 @@ class PebbleEngineSpec extends Specification {
       val someBigLongValue   : Long   = 99999L
       val otherLongValue     : Long   = 6666L
       val niceDoubleValue    : Double =  25.25
-      val aDescriptionString : String = "Das ist ein einfacher String"
+      val aDescriptionString : String = "This is a simple string"
 
       val data = TestCaseClass(someBigLongValue, otherLongValue, niceDoubleValue, aDescriptionString)
       val context = Map("data" -> data)
       val evaluated = Engine.evaluateToString("templates/engine/basic_injection.peb", context)
-      evaluated must contain("Das ist ein einfacher String")
+      evaluated must contain("This is a simple string")
     }
 
   }
