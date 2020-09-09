@@ -21,7 +21,7 @@ Scala Version is 2.13.x / 2.12.x.
 
 ```
 resolvers ++= Seq(Resolver.jcenterRepo)
-libraryDependencies += "com.sfxcode.templating" %% "pebble-scala" % "0.8.2"
+libraryDependencies += "com.sfxcode.templating" %% "pebble-scala" % "0.8.3"
 ```
 
 ## Travis
