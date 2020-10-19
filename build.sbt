@@ -36,7 +36,7 @@ resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repos
 
 // Test
 
-libraryDependencies += "org.specs2" %% "specs2-core" % "4.10.3" % Test
+libraryDependencies += "org.specs2" %% "specs2-core" % "4.10.5" % Test
 
 libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.3" % Test
 
@@ -44,7 +44,7 @@ libraryDependencies += "joda-time" % "joda-time" % "2.10.6" % Test
 
 libraryDependencies += "io.pebbletemplates" % "pebble" % "3.1.4"
 
-libraryDependencies += "org.scala-lang.modules" %% "scala-collection-compat" % "2.1.6"
+libraryDependencies += "org.scala-lang.modules" %% "scala-collection-compat" % "2.2.0"
 
 enablePlugins(BuildInfoPlugin)
 
