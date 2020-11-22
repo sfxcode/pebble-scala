@@ -16,15 +16,15 @@ class ScalaResolverSpec extends Specification {
 
     "evaluate Option in" in {
       Engine.evaluateToString("{{ option[0] }}", Map("option" -> Some("Element1"))) mustEqual "Element1"
-      Engine.evaluateToString("{{ option._ }}", Map("option"  -> Some("Element1"))) mustEqual "Element1"
+      Engine.evaluateToString("{{ option._ }}", Map("option" -> Some("Element1"))) mustEqual "Element1"
       Engine.evaluateToString("{{ option[0] }}", Map("option" -> None)) mustEqual ""
-      Engine.evaluateToString("{{ option._ }}", Map("option"  -> None)) mustEqual ""
+      Engine.evaluateToString("{{ option._ }}", Map("option" -> None)) mustEqual ""
     }
 
     "evaluate scala collections in" in {
-      Engine.evaluateToString("{{ list[0] }}", Map("list"   -> List("Element1"))) mustEqual "Element1"
-      Engine.evaluateToString("{{ list[1] }}", Map("list"   -> List("Element1"))) mustEqual ""
-      Engine.evaluateToString("{{ set[0] }}", Map("set"     -> Set("Element1"))) mustEqual "Element1"
+      Engine.evaluateToString("{{ list[0] }}", Map("list" -> List("Element1"))) mustEqual "Element1"
+      Engine.evaluateToString("{{ list[1] }}", Map("list" -> List("Element1"))) mustEqual ""
+      Engine.evaluateToString("{{ set[0] }}", Map("set" -> Set("Element1"))) mustEqual "Element1"
       Engine.evaluateToString("{{ array[0] }}", Map("array" -> Array("Element1"))) mustEqual "Element1"
       val buffer = new ArrayBuffer[String]()
       buffer.+=("Element1")
@@ -41,9 +41,12 @@ class ScalaResolverSpec extends Specification {
     }
 
     "evaluate scala maps in" in {
-      Engine.evaluateToString("{{ map.key1 }}", Map("map" -> Map("key1"                    -> "Element1"))) mustEqual "Element1"
-      Engine.evaluateToString("{{ map.key1 }}", Map("map" -> collection.mutable.Map("key1" -> "Element1"))) mustEqual "Element1"
-      Engine.evaluateToString("{{ map.key2 }}", Map("map" -> Map("key1"                    -> "Element1"))) mustEqual ""
+      Engine.evaluateToString("{{ map.key1 }}", Map("map" -> Map("key1" -> "Element1"))) mustEqual "Element1"
+      Engine.evaluateToString(
+        "{{ map.key1 }}",
+        Map("map" -> collection.mutable.Map("key1" -> "Element1"))
+      ) mustEqual "Element1"
+      Engine.evaluateToString("{{ map.key2 }}", Map("map" -> Map("key1" -> "Element1"))) mustEqual ""
     }
 
     "evaluate java maps in" in {
@@ -57,7 +60,7 @@ class ScalaResolverSpec extends Specification {
       Engine.evaluateToString("{{ bi }}", Map("bi" -> BigInt(42))) mustEqual "42"
       Engine.evaluateToString("{{ bd }}", Map("bd" -> BigDecimal(42.5))) mustEqual "42.5"
     }
-    
+
     "evaluate scala case class in" in {
 
       case class Foo(bar: String)
@@ -70,7 +73,7 @@ class ScalaResolverSpec extends Specification {
       class Foo(val bar: String) {
         def getFooBarString = s"Foo is $bar"
       }
-      
+
       val result = Engine.evaluateToString("{{ Class.getFooBarString }}", Map("Class" -> new Foo("FooBar")))
       result mustEqual "Foo is FooBar"
     }
@@ -78,7 +81,7 @@ class ScalaResolverSpec extends Specification {
     "evaluate scala tuple in" in {
 
       val fooBar: (String, Int, Double) = ("Test String", 1, 3.14)
-      val result = Engine.evaluateToString("{{ fooBar._1 }}: {{ fooBar._2 }}", Map("fooBar" -> fooBar))
+      val result                        = Engine.evaluateToString("{{ fooBar._1 }}: {{ fooBar._2 }}", Map("fooBar" -> fooBar))
       result mustEqual "Test String: 1"
     }
 
