@@ -44,7 +44,7 @@ libraryDependencies += "joda-time" % "joda-time" % "2.10.6" % Test
 
 libraryDependencies += "io.pebbletemplates" % "pebble" % "3.1.4"
 
-libraryDependencies += "org.scala-lang.modules" %% "scala-collection-compat" % "2.2.0"
+libraryDependencies += "org.scala-lang.modules" %% "scala-collection-compat" % "2.3.1"
 
 enablePlugins(BuildInfoPlugin)
 
