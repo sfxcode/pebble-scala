@@ -27,7 +27,7 @@ lazy val docs = (project in file("docs"))
       _.withRepository(uri("https://github.com/sfxcode/pebble-scala"))
     },
     (Compile / paradoxMarkdownToHtml / excludeFilter) := (Compile / paradoxMarkdownToHtml / excludeFilter).value ||
-          ParadoxPlugin.InDirectoryFilter((Compile / paradox / sourceDirectory).value / "includes")
+    ParadoxPlugin.InDirectoryFilter((Compile / paradox / sourceDirectory).value / "includes")
   )
 
 buildInfoOptions += BuildInfoOption.BuildTime
