@@ -36,11 +36,10 @@ class PebbleEngineSpec extends Specification {
 
 }
 
-/**
-  * Simple Helper Case Class for Testing injection of case classes into pebble templates
+/** Simple Helper Case Class for Testing injection of case classes into pebble templates
   * The implementation is not main part of test case
   *
- * @param someBigLongValue - just a long value
+  * @param someBigLongValue - just a long value
   * @param otherLongValue - just another long value
   * @param niceDoubleValue - just a double value
   * @param aDescriptionString - just a String value
