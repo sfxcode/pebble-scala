@@ -15,7 +15,7 @@ Adds first class scala support to Pebble.
 
 
 ## Version
-Scala Version is 2.13.x / 2.12.x.
+Scala Version is 2.13.x / 3.0.0-M3
 
 ## SBT
 
