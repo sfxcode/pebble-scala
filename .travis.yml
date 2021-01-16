@@ -5,7 +5,7 @@ dist: bionic
 language: scala
 
 scala:
-  - 2.12.11
+  - 3.0.0-M3
   - 2.13.3
 
 branches:
