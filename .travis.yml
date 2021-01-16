@@ -6,7 +6,7 @@ language: scala
 
 scala:
   - 3.0.0-M3
-  - 2.13.3
+  - 2.13.4
 
 branches:
   only:
