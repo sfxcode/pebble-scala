@@ -93,7 +93,7 @@ case class ScalaForNode(
       }
   }
 
-  private case class ArrayIterable private[node] (var obj: Any) extends java.lang.Iterable[Any] {
+  case class ArrayIterable private[node] (var obj: Any) extends java.lang.Iterable[Any] {
     override def iterator: util.Iterator[Any] =
       new util.Iterator[Any]() {
         private var index        = 0

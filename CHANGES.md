@@ -1,7 +1,10 @@
 # Changes #
 
-
 ## Versions
+
+### 0.9.0
+* drop scala 2.11 support
+* add scala 3 support (3.0.0-M3)
 
 ### 0.8.3
 * support case classes and tuples
