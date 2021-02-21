@@ -42,7 +42,7 @@ libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.3" % Test
 
 libraryDependencies += "joda-time" % "joda-time" % "2.10.9" % Test
 
-libraryDependencies += "io.pebbletemplates" % "pebble" % "3.1.4"
+libraryDependencies += "io.pebbletemplates" % "pebble" % "3.1.5"
 
 enablePlugins(BuildInfoPlugin)
 
