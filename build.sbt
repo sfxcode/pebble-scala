@@ -40,7 +40,7 @@ libraryDependencies += "org.specs2" % "specs2-core_2.13" % "4.10.6" % Test
 
 libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.3" % Test
 
-libraryDependencies += "joda-time" % "joda-time" % "2.10.9" % Test
+libraryDependencies += "joda-time" % "joda-time" % "2.10.10" % Test
 
 libraryDependencies += "io.pebbletemplates" % "pebble" % "3.1.5"
 
