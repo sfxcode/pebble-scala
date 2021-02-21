@@ -5,7 +5,7 @@ name := "pebble-scala"
 
 organization := "com.sfxcode.templating"
 
-crossScalaVersions := Seq("3.0.0-M3", "2.13.4")
+crossScalaVersions := Seq("3.0.0-RC1", "2.13.4")
 
 scalaVersion := crossScalaVersions.value.head
 

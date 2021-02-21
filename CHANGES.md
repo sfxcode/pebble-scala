@@ -3,6 +3,10 @@
 
 ## Versions
 
+### 1.0.0
+* Scala 3.0.0-RC1
+* Pebble 3.1.5 [https://pebbletemplates.io/changelog/](https://pebbletemplates.io/changelog/)
+
 ### 0.9.0
 * drop scala 2.11 support
 * add scala 3 support (3.0.0-M3)
