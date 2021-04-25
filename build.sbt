@@ -36,7 +36,7 @@ resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repos
 
 // Test
 
-libraryDependencies += "org.specs2" % "specs2-core_2.13" % "4.10.6" % Test
+libraryDependencies += "org.specs2" % "specs2-core_2.13" % "4.11.0" % Test
 
 libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.3" % Test
 
