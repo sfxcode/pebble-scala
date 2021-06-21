@@ -2,7 +2,7 @@
 
 A wrapper library for using [Pebble Templates](https://pebbletemplates.io/) in Scala.
 
-Adds first class scala support to Pebble.
+Adds first class scala support (2.13.x / 3.0.0) to Pebble.
 
 ## Features
 

@@ -3,6 +3,10 @@
 
 ## Versions
 
+### 1.0.1
+* Scala 3.0.0
+* move to munit for tests
+
 ### 1.0.0
 * Scala 3.0.0-RC1
 * Pebble 3.1.5 [https://pebbletemplates.io/changelog/](https://pebbletemplates.io/changelog/)

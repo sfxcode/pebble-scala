@@ -3,15 +3,13 @@ import ReleaseTransformations._
 
 name := "pebble-scala"
 
-organization := "com.sfxcode.templating"
-
-crossScalaVersions := Seq("3.0.0-RC1", "2.13.4")
+crossScalaVersions := Seq("2.13.6", "3.0.0")
 
 scalaVersion := crossScalaVersions.value.head
 
 scalacOptions += "-deprecation"
 
-parallelExecution in Test := false
+Test / parallelExecution := false
 
 lazy val docs = (project in file("docs"))
   .enablePlugins(ParadoxSitePlugin)
@@ -19,7 +17,7 @@ lazy val docs = (project in file("docs"))
   .enablePlugins(GhpagesPlugin)
   .settings(
     name := "pebble scala docs",
-    scalaVersion := "2.13.4",
+    scalaVersion := "2.13.6",
     publish / skip := true,
     ghpagesNoJekyll := true,
     git.remoteRepo := "git@github.com:sfxcode/pebble-scala.git",
@@ -34,15 +32,19 @@ buildInfoOptions += BuildInfoOption.BuildTime
 
 resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 
-// Test
+// Test dependencies
 
-libraryDependencies += "org.specs2" % "specs2-core_2.13" % "4.10.6" % Test
+libraryDependencies += "org.scalameta" %% "munit" % "0.7.26" % Test
 
 libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.3" % Test
 
 libraryDependencies += "joda-time" % "joda-time" % "2.10.10" % Test
 
+// Runtime dependencies
+
 libraryDependencies += "io.pebbletemplates" % "pebble" % "3.1.5"
+
+// Plugins
 
 enablePlugins(BuildInfoPlugin)
 
@@ -52,50 +54,8 @@ buildInfoOptions += BuildInfoOption.BuildTime
 
 buildInfoKeys ++= Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion)
 
-licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html"))
-
-// publish
-
-releaseCrossBuild := true
-
-bintrayReleaseOnPublish in ThisBuild := true
-
-publishMavenStyle := true
-
-homepage := Some(url("https://github.com/sfxcode/pebble-scala"))
-
-scmInfo := Some(
-  ScmInfo(
-    url("https://github.com/sfxcode/pebble-scala"),
-    "scm:https://github.com/sfxcode/pebble-scala.git"
-  )
-)
-
-developers := List(
-  Developer(
-    id = "sfxcode",
-    name = "Tom Lamers",
-    email = "tom@sfxcode.com",
-    url = url("https://github.com/sfxcode")
-  )
-)
-
-releaseProcess := Seq[ReleaseStep](
-  checkSnapshotDependencies, // : ReleaseStep
-  inquireVersions,           // : ReleaseStep
-  runClean,                  // : ReleaseStep
-  runTest,                   // : ReleaseStep
-  setReleaseVersion,         // : ReleaseStep
-  commitReleaseVersion,      // : ReleaseStep, performs the initial git checks
-  tagRelease,                // : ReleaseStep
-  publishArtifacts,          // : ReleaseStep, checks whether `publishTo` is properly set up
-  setNextVersion,            // : ReleaseStep
-  commitNextVersion,         // : ReleaseStep
-  pushChanges                // : ReleaseStep, also checks that an upstream branch is properly configured
-)
-
 scalafmtOnCompile := false
 
-coverageMinimum := 70
+coverageMinimumStmtTotal := 70
 
 coverageFailOnMinimum := true
