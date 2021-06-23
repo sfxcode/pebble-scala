@@ -1,7 +1,11 @@
 # Changes #
 
-
 ## Versions
+
+### 1.0.2
+* renamed test classes appendix (Spec to Suite)
+* added do Tag (feature request in pebble java)
+* Some Refactorings
 
 ### 1.0.1
 * Scala 3.0.0

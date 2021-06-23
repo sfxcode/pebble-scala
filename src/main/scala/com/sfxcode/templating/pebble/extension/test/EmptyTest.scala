@@ -26,3 +26,7 @@ case class EmptyTest() extends Test {
       case _                       => true
     }
 }
+
+object EmptyTest {
+  val Name = "empty"
+}

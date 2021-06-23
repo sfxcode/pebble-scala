@@ -2,7 +2,7 @@ package com.sfxcode.templating.pebble.engine.block
 
 import com.sfxcode.templating.pebble.{BuildInfo, ScalaPebbleEngine}
 
-class BlockSpec extends munit.FunSuite {
+class BlockSuite extends munit.FunSuite {
   val Engine: ScalaPebbleEngine = ScalaPebbleEngine(globalContext = Map("info" -> BuildInfo))
 
   test("evaluate master") {

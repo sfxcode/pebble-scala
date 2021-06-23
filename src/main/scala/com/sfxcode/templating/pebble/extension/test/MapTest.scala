@@ -22,3 +22,7 @@ case class MapTest() extends Test {
       case _                       => false
     }
 }
+
+object MapTest {
+  val Name = "map"
+}

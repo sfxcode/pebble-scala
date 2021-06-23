@@ -22,3 +22,7 @@ case class IterableTest() extends Test {
       case _                         => false
     }
 }
+
+object IterableTest {
+  val Name = "iterable"
+}

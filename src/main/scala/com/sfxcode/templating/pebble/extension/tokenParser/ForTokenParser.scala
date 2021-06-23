@@ -49,5 +49,9 @@ case class ForTokenParser() extends TokenParser {
     ScalaForNode(lineNumber, iterationVariable, iterable, body, elseBody)
   }
 
-  override def getTag: String = "for"
+  override def getTag: String = ForTokenParser.TagName
+}
+
+object ForTokenParser {
+  val TagName = "for"
 }

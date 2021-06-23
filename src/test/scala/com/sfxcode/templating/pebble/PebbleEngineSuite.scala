@@ -1,6 +1,6 @@
 package com.sfxcode.templating.pebble
 
-class PebbleEngineSpec extends munit.FunSuite {
+class PebbleEngineSuite extends munit.FunSuite {
   val Engine: ScalaPebbleEngine = ScalaPebbleEngine(globalContext = Map("info" -> BuildInfo))
 
   test("evaluate template from string)") {
@@ -29,7 +29,7 @@ class PebbleEngineSpec extends munit.FunSuite {
 
 }
 
-/** Simple Helper Case Class for Testing)jection of case classes)to pebble templates
+/** Simple Helper Case Class for Testing the pebble templates
   * The implementation is not main part of test case
   *
   * @param someBigLongValue - just a long value

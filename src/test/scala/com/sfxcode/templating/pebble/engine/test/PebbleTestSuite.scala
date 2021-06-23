@@ -4,7 +4,7 @@ import com.sfxcode.templating.pebble.{BuildInfo, ScalaPebbleEngine}
 
 import scala.collection.mutable.ArrayBuffer
 
-class PebbleTestSpec extends munit.FunSuite {
+class PebbleTestSuite extends munit.FunSuite {
   val Engine: ScalaPebbleEngine = ScalaPebbleEngine(globalContext = Map("info" -> BuildInfo))
 
   test("evaluate master") {

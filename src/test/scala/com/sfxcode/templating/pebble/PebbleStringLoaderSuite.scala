@@ -1,6 +1,6 @@
 package com.sfxcode.templating.pebble
 
-class PebbleStringLoaderSpec extends munit.FunSuite {
+class PebbleStringLoaderSuite extends munit.FunSuite {
   val Engine: ScalaPebbleEngine = ScalaPebbleEngine(useStringLoader = true)
 
   test("evaluate template from string in") {
