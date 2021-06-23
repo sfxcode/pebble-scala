@@ -3,7 +3,7 @@ import ReleaseTransformations._
 
 name := "pebble-scala"
 
-crossScalaVersions := Seq("2.13.6", "3.0.0")
+crossScalaVersions := Seq("2.13.6", "3.0.0", "2.12.11")
 
 scalaVersion := crossScalaVersions.value.head
 
@@ -43,6 +43,8 @@ libraryDependencies += "joda-time" % "joda-time" % "2.10.10" % Test
 // Runtime dependencies
 
 libraryDependencies += "io.pebbletemplates" % "pebble" % "3.1.5"
+
+libraryDependencies += "org.scala-lang.modules" %% "scala-collection-compat" % "2.4.4"
 
 // Plugins
 
