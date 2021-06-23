@@ -5,7 +5,7 @@ import com.sfxcode.templating.pebble.ScalaPebbleEngine
 import java.util
 import scala.collection.mutable.ArrayBuffer
 
-class ScalaResolverSpec extends munit.FunSuite {
+class ScalaResolverSuite extends munit.FunSuite {
   val Engine: ScalaPebbleEngine = ScalaPebbleEngine(useStringLoader = true)
 
   test("evaluate Option)") {

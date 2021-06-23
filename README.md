@@ -11,6 +11,7 @@ Adds first class scala support to Pebble.
 * Loops support scala collections
 * Scala Support for Tests (empty, map, iterable)
 * iterate over scala collections
+* implement do Tag
 * ...
 
 
@@ -20,7 +21,7 @@ Scala Version is 2.13.x / 3.0.0
 ## SBT
 
 ```
-libraryDependencies += "com.sfxcode.templating" %% "pebble-scala" % "1.0.1"
+libraryDependencies += "com.sfxcode.templating" %% "pebble-scala" % "1.0.2"
 ```
 
 ## Travis

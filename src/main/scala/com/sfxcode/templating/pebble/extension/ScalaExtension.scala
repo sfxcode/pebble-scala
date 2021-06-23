@@ -1,14 +1,13 @@
 package com.sfxcode.templating.pebble.extension
 
 import java.util
-
 import com.mitchellbosecke.pebble.attributes.AttributeResolver
 
 import scala.jdk.CollectionConverters._
 import com.mitchellbosecke.pebble.extension.{AbstractExtension, Test}
 import com.mitchellbosecke.pebble.tokenParser.TokenParser
-import com.sfxcode.templating.pebble.extension.test.{EmptyTest, IterableTest, MapTest}
-import com.sfxcode.templating.pebble.extension.tokenParser.ForTokenParser
+import com.sfxcode.templating.pebble.extension.test._
+import com.sfxcode.templating.pebble.extension.tokenParser.{DoTokenParser, ForTokenParser}
 
 case class ScalaExtension(globalContext: Map[String, AnyRef] = Map()) extends AbstractExtension {
 
@@ -18,8 +17,12 @@ case class ScalaExtension(globalContext: Map[String, AnyRef] = Map()) extends Ab
     List[AttributeResolver](ScalaResolver()).asJava
 
   override def getTests: util.Map[String, Test] =
-    Map[String, Test]("empty" -> EmptyTest(), "map" -> MapTest(), "iterable" -> IterableTest()).asJava
+    Map[String, Test](
+      EmptyTest.Name    -> EmptyTest(),
+      MapTest.Name      -> MapTest(),
+      IterableTest.Name -> IterableTest()
+    ).asJava
 
   override def getTokenParsers: util.List[TokenParser] =
-    List[TokenParser](ForTokenParser()).asJava
+    List[TokenParser](ForTokenParser(), DoTokenParser()).asJava
 }

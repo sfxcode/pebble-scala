@@ -1,0 +1,6 @@
+{% set tempArray = [] %}
+{% do tempArray.add("item1") %}
+{% do tempArray.add("item2") %}
+{% for value in tempArray %}
+<li>{{ value }}</li>
+{% endfor %}

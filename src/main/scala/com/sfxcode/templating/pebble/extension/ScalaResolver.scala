@@ -25,7 +25,7 @@ case class ScalaResolver() extends AttributeResolver {
         new ResolvedAttribute(option.get)
       case p: Product =>
         val declaredFieldsNames = p.getClass.getDeclaredFields.map(_.getName)
-        val productSeq          = p.asInstanceOf[Product].productIterator.toSeq
+        val productSeq          = p.productIterator.toSeq
         val map                 = declaredFieldsNames.zip(productSeq).toMap
         resolve(map, attributeNameValue, argumentValues, args, context, filename, lineNumber)
       case _ => null
