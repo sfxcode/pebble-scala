@@ -2,6 +2,9 @@
 
 ## Versions
 
+### 1.0.3
+* revoke scala 2.11 support
+
 ### 1.0.2
 * renamed test classes appendix (Spec to Suite)
 * added do Tag (feature request in pebble java)
