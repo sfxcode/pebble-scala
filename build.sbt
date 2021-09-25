@@ -34,11 +34,11 @@ resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repos
 
 // Test dependencies
 
-libraryDependencies += "org.scalameta" %% "munit" % "0.7.26" % Test
+libraryDependencies += "org.scalameta" %% "munit" % "0.7.29" % Test
 
-libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.5" % Test
+libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.6" % Test
 
-libraryDependencies += "joda-time" % "joda-time" % "2.10.10" % Test
+libraryDependencies += "joda-time" % "joda-time" % "2.10.11" % Test
 
 // Runtime dependencies
 
