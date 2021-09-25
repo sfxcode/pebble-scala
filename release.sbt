@@ -9,8 +9,8 @@ homepage := Some(url("https://github.com/sfxcode/pebble-scala"))
 
 scmInfo := Some(
   ScmInfo(
-    url("https://github.com/sfxcode/sapphire-data"),
-    "scm:https://github.com/sfxcode/sapphire-data.git"
+    url("https://github.com/sfxcode/pebble-scala"),
+    "scm:https://github.com/sfxcode/pebble-scala.git"
   )
 )
 

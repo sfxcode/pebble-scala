@@ -1,6 +1,3 @@
-import sbt.url
-import ReleaseTransformations._
-
 name := "pebble-scala"
 
 crossScalaVersions := Seq("2.13.6", "3.0.2", "2.12.11")
