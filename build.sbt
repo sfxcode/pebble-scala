@@ -1,6 +1,6 @@
 name := "pebble-scala"
 
-crossScalaVersions := Seq("2.13.6", "3.0.2", "2.12.11")
+crossScalaVersions := Seq("3.1.0", "2.13.7", "2.12.12")
 
 scalaVersion := crossScalaVersions.value.head
 
@@ -14,7 +14,7 @@ lazy val docs = (project in file("docs"))
   .enablePlugins(GhpagesPlugin)
   .settings(
     name := "pebble scala docs",
-    scalaVersion := "2.13.6",
+    scalaVersion := "2.13.7",
     publish / skip := true,
     ghpagesNoJekyll := true,
     git.remoteRepo := "git@github.com:sfxcode/pebble-scala.git",
@@ -33,15 +33,15 @@ resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repos
 
 libraryDependencies += "org.scalameta" %% "munit" % "0.7.29" % Test
 
-libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.6" % Test
+libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.7" % Test
 
-libraryDependencies += "joda-time" % "joda-time" % "2.10.11" % Test
+libraryDependencies += "joda-time" % "joda-time" % "2.10.13" % Test
 
 // Runtime dependencies
 
 libraryDependencies += "io.pebbletemplates" % "pebble" % "3.1.5"
 
-libraryDependencies += "org.scala-lang.modules" %% "scala-collection-compat" % "2.5.0"
+libraryDependencies += "org.scala-lang.modules" %% "scala-collection-compat" % "2.6.0"
 
 // Plugins
 
