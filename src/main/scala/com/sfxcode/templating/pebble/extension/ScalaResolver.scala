@@ -1,8 +1,8 @@
 package com.sfxcode.templating.pebble.extension
 
-import com.mitchellbosecke.pebble.attributes.{AttributeResolver, ResolvedAttribute}
-import com.mitchellbosecke.pebble.node.ArgumentsNode
-import com.mitchellbosecke.pebble.template.EvaluationContextImpl
+import io.pebbletemplates.pebble.attributes.{AttributeResolver, ResolvedAttribute}
+import io.pebbletemplates.pebble.node.ArgumentsNode
+import io.pebbletemplates.pebble.template.EvaluationContextImpl
 
 case class ScalaResolver() extends AttributeResolver {
   override def resolve(

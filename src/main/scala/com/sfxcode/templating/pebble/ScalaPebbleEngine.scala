@@ -3,10 +3,10 @@ package com.sfxcode.templating.pebble
 import java.io.{StringWriter, Writer}
 import java.util.Locale
 
-import com.mitchellbosecke.pebble.PebbleEngine
-import com.mitchellbosecke.pebble.extension.Extension
-import com.mitchellbosecke.pebble.loader.StringLoader
-import com.mitchellbosecke.pebble.template.PebbleTemplate
+import io.pebbletemplates.pebble.PebbleEngine
+import io.pebbletemplates.pebble.extension.Extension
+import io.pebbletemplates.pebble.loader.StringLoader
+import io.pebbletemplates.pebble.template.PebbleTemplate
 import com.sfxcode.templating.pebble.extension.ScalaExtension
 
 import scala.jdk.CollectionConverters._

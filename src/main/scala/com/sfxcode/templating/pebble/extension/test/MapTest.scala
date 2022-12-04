@@ -2,8 +2,8 @@ package com.sfxcode.templating.pebble.extension.test
 
 import java.util
 
-import com.mitchellbosecke.pebble.extension.Test
-import com.mitchellbosecke.pebble.template.{EvaluationContext, PebbleTemplate}
+import io.pebbletemplates.pebble.extension.Test
+import io.pebbletemplates.pebble.template.{EvaluationContext, PebbleTemplate}
 
 case class MapTest() extends Test {
   override def getArgumentNames: util.List[String] = null

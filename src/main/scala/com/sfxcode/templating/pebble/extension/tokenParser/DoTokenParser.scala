@@ -1,9 +1,9 @@
 package com.sfxcode.templating.pebble.extension.tokenParser
 
-import com.mitchellbosecke.pebble.lexer.Token
-import com.mitchellbosecke.pebble.node.RenderableNode
-import com.mitchellbosecke.pebble.parser.Parser
-import com.mitchellbosecke.pebble.tokenParser.TokenParser
+import io.pebbletemplates.pebble.lexer.Token
+import io.pebbletemplates.pebble.node.RenderableNode
+import io.pebbletemplates.pebble.parser.Parser
+import io.pebbletemplates.pebble.tokenParser.TokenParser
 import com.sfxcode.templating.pebble.extension.node.DoNode
 
 case class DoTokenParser() extends TokenParser {

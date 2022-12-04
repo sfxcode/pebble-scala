@@ -1,9 +1,9 @@
 package com.sfxcode.templating.pebble.extension.node
 
-import com.mitchellbosecke.pebble.extension.NodeVisitor
-import com.mitchellbosecke.pebble.node.AbstractRenderableNode
-import com.mitchellbosecke.pebble.node.expression.Expression
-import com.mitchellbosecke.pebble.template.{EvaluationContextImpl, PebbleTemplateImpl}
+import io.pebbletemplates.pebble.extension.NodeVisitor
+import io.pebbletemplates.pebble.node.AbstractRenderableNode
+import io.pebbletemplates.pebble.node.expression.Expression
+import io.pebbletemplates.pebble.template.{EvaluationContextImpl, PebbleTemplateImpl}
 
 import java.io.Writer
 

@@ -3,12 +3,11 @@ package com.sfxcode.templating.pebble.extension.node
 import java.io.Writer
 import java.lang.reflect.Array
 import java.util
-
-import com.mitchellbosecke.pebble.error.PebbleException
-import com.mitchellbosecke.pebble.node.expression.Expression
-import com.mitchellbosecke.pebble.node.fornode.{LazyLength, LazyRevIndex}
-import com.mitchellbosecke.pebble.node.{BodyNode, ForNode}
-import com.mitchellbosecke.pebble.template.{EvaluationContextImpl, PebbleTemplateImpl, ScopeChain}
+import io.pebbletemplates.pebble.error.PebbleException
+import io.pebbletemplates.pebble.node.expression.Expression
+import io.pebbletemplates.pebble.node.fornode.{LazyLength, LazyRevIndex}
+import io.pebbletemplates.pebble.node.{BodyNode, ForNode}
+import io.pebbletemplates.pebble.template.{EvaluationContextImpl, PebbleTemplateImpl, ScopeChain}
 
 import scala.jdk.CollectionConverters._
 

@@ -1,6 +1,6 @@
 name := "pebble-scala"
 
-crossScalaVersions := Seq("3.1.0", "2.13.8", "2.12.15")
+crossScalaVersions := Seq("3.1.0", "2.13.10", "2.12.15")
 
 scalaVersion := crossScalaVersions.value.head
 
@@ -33,15 +33,15 @@ resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repos
 
 libraryDependencies += "org.scalameta" %% "munit" % "0.7.29" % Test
 
-libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.10" % Test
+libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.4.5" % Test
 
-libraryDependencies += "joda-time" % "joda-time" % "2.10.13" % Test
+libraryDependencies += "joda-time" % "joda-time" % "2.12.2" % Test
 
 // Runtime dependencies
 
-libraryDependencies += "io.pebbletemplates" % "pebble" % "3.1.5"
+libraryDependencies += "io.pebbletemplates" % "pebble" % "3.2.0"
 
-libraryDependencies += "org.scala-lang.modules" %% "scala-collection-compat" % "2.6.0"
+libraryDependencies += "org.scala-lang.modules" %% "scala-collection-compat" % "2.9.0"
 
 // Plugins
 

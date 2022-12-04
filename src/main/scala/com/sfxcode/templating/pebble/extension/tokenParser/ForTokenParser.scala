@@ -1,10 +1,10 @@
 package com.sfxcode.templating.pebble.extension.tokenParser
 
-import com.mitchellbosecke.pebble.error.ParserException
-import com.mitchellbosecke.pebble.lexer.Token
-import com.mitchellbosecke.pebble.node.{BodyNode, RenderableNode}
-import com.mitchellbosecke.pebble.parser.Parser
-import com.mitchellbosecke.pebble.tokenParser.TokenParser
+import io.pebbletemplates.pebble.error.ParserException
+import io.pebbletemplates.pebble.lexer.Token
+import io.pebbletemplates.pebble.node.{BodyNode, RenderableNode}
+import io.pebbletemplates.pebble.parser.Parser
+import io.pebbletemplates.pebble.tokenParser.TokenParser
 import com.sfxcode.templating.pebble.extension.node.ScalaForNode
 
 case class ForTokenParser() extends TokenParser {
