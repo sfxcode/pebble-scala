@@ -9,12 +9,12 @@ import io.pebbletemplates.pebble.tokenParser.TokenParser
 import com.sfxcode.templating.pebble.extension.test._
 import com.sfxcode.templating.pebble.extension.tokenParser.{DoTokenParser, ForTokenParser}
 
-case class ScalaExtension(globalContext: Map[String, AnyRef] = Map()) extends AbstractExtension {
+class ScalaExtension(globalContext: Map[String, AnyRef] = Map()) extends AbstractExtension {
 
   override def getGlobalVariables: util.Map[String, AnyRef] = globalContext.asJava
 
   override def getAttributeResolver: util.List[AttributeResolver] =
-    List[AttributeResolver](ScalaResolver()).asJava
+    List[AttributeResolver](new ScalaResolver()).asJava
 
   override def getTests: util.Map[String, Test] =
     Map[String, Test](

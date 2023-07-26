@@ -4,7 +4,7 @@ import io.pebbletemplates.pebble.attributes.{AttributeResolver, ResolvedAttribut
 import io.pebbletemplates.pebble.node.ArgumentsNode
 import io.pebbletemplates.pebble.template.EvaluationContextImpl
 
-case class ScalaResolver() extends AttributeResolver {
+class ScalaResolver() extends AttributeResolver {
   override def resolve(
       obj: Any,
       attributeNameValue: Any,
