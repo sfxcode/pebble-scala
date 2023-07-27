@@ -2,6 +2,9 @@
 
 ## Versions
 
+### 1.1.3
+* Pebble 3.2.1
+
 ### 1.0.3
 * revoke scala 2.11 support
 
