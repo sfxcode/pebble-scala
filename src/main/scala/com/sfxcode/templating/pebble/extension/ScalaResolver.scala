@@ -31,7 +31,7 @@ class ScalaResolver() extends AttributeResolver {
       case _ => null
     }
 
-  private def guessIndex(attributeNameValue: Any):Int = {
+  protected def guessIndex(attributeNameValue: Any):Int = {
     var result = Int.MaxValue
        try {
          result = attributeNameValue.toString.toInt
