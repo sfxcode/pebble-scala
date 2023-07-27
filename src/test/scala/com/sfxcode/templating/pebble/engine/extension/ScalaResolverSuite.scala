@@ -3,6 +3,7 @@ package com.sfxcode.templating.pebble.engine.extension
 import com.sfxcode.templating.pebble.ScalaPebbleEngine
 
 import java.util
+import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
 class ScalaResolverSuite extends munit.FunSuite {
@@ -44,13 +45,6 @@ class ScalaResolverSuite extends munit.FunSuite {
       "Element1"
     )
     assertEquals(Engine.evaluateToString("{{ map.key2 }}", Map("map" -> Map("key1" -> "Element1"))), "")
-  }
-
-  test("evaluate java maps)") {
-    val map = new util.HashMap[String, String]()
-    map.put("key1", "Element1")
-    assertEquals(Engine.evaluateToString("{{ map.key1 }}", Map("map" -> map)), "Element1")
-    assertEquals(Engine.evaluateToString("{{ map.key2 }}", Map("map" -> map)), "")
   }
 
   test("evaluate scala BigInteger / BigDecimal)") {

@@ -19,8 +19,8 @@ class ScalaResolver() extends AttributeResolver {
       case map: collection.Map[String, _] if map.keySet.contains(attributeNameValue.toString) =>
         new ResolvedAttribute(map(attributeNameValue.toString))
       case it: collection.Iterable[_]
-          if !it.isInstanceOf[Map[String, Any]] && it.size > attributeNameValue.toString.toInt =>
-        new ResolvedAttribute(it.toList(attributeNameValue.toString.toInt))
+          if !it.isInstanceOf[Map[String, Any]] && it.size > guessIndex(attributeNameValue) =>
+        new ResolvedAttribute(it.toList(guessIndex(attributeNameValue)))
       case option: Option[_] if option.isDefined =>
         new ResolvedAttribute(option.get)
       case p: Product =>
@@ -30,5 +30,16 @@ class ScalaResolver() extends AttributeResolver {
         resolve(map, attributeNameValue, argumentValues, args, context, filename, lineNumber)
       case _ => null
     }
+
+  private def guessIndex(attributeNameValue: Any):Int = {
+    var result = Int.MaxValue
+       try {
+         result = attributeNameValue.toString.toInt
+       } catch {
+         case _ =>
+       }
+
+    result
+  }
 
 }
