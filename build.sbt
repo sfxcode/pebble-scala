@@ -8,22 +8,22 @@ scalacOptions += "-deprecation"
 
 Test / parallelExecution := false
 
-lazy val docs = (project in file("docs"))
-  .enablePlugins(ParadoxSitePlugin)
-  .enablePlugins(ParadoxMaterialThemePlugin)
-  .enablePlugins(GhpagesPlugin)
-  .settings(
-    name := "pebble scala docs",
-    scalaVersion := "2.13.11",
-    publish / skip := true,
-    ghpagesNoJekyll := true,
-    git.remoteRepo := "git@github.com:sfxcode/pebble-scala.git",
-    Compile / paradoxMaterialTheme ~= {
-      _.withRepository(uri("https://github.com/sfxcode/pebble-scala"))
-    },
-    (Compile / paradoxMarkdownToHtml / excludeFilter) := (Compile / paradoxMarkdownToHtml / excludeFilter).value ||
-    ParadoxPlugin.InDirectoryFilter((Compile / paradox / sourceDirectory).value / "includes")
-  )
+//lazy val docs = (project in file("docs"))
+//  .enablePlugins(ParadoxSitePlugin)
+//  .enablePlugins(ParadoxMaterialThemePlugin)
+//  .enablePlugins(GhpagesPlugin)
+//  .settings(
+//    name := "pebble scala docs",
+//    scalaVersion := "2.13.11",
+//    publish / skip := true,
+//    ghpagesNoJekyll := true,
+//    git.remoteRepo := "git@github.com:sfxcode/pebble-scala.git",
+//    Compile / paradoxMaterialTheme ~= {
+//      _.withRepository(uri("https://github.com/sfxcode/pebble-scala"))
+//    },
+//    (Compile / paradoxMarkdownToHtml / excludeFilter) := (Compile / paradoxMarkdownToHtml / excludeFilter).value ||
+//    ParadoxPlugin.InDirectoryFilter((Compile / paradox / sourceDirectory).value / "includes")
+//  )
 
 buildInfoOptions += BuildInfoOption.BuildTime
 

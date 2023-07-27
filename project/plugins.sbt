@@ -15,6 +15,9 @@ addSbtPlugin("com.github.fedragon" % "sbt-todolist" % "0.7")
 // Release
 addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.9.15")
 
+addSbtPlugin("com.github.sbt" % "sbt-pgp" % "2.2.1")
+
+
 addSbtPlugin("com.github.gseitz" % "sbt-release" % "1.0.13")
 
 // paradox
