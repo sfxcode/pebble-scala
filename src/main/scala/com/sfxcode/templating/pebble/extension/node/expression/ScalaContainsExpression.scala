@@ -1,5 +1,6 @@
 package com.sfxcode.templating.pebble.extension.node.expression
 
+import com.sfxcode.templating.pebble.compat._
 import io.pebbletemplates.pebble.node.expression.ContainsExpression
 import io.pebbletemplates.pebble.template.{EvaluationContextImpl, PebbleTemplateImpl}
 

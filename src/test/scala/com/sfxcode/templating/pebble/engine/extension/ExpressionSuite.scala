@@ -11,11 +11,17 @@ class ExpressionSuite extends munit.FunSuite {
 
   case class Data[T](x: T)
 
-  private def assertContains[A <: AnyRef, B <: AnyRef](left: A, right: B)(implicit loc: Location) =
-    assertEquals(Engine.evaluateToString("{% if left contains right %}yes{% endif %}", Map("left" -> left, "right" -> right)), "yes")
+  private def autobox(map: Map[String, Any]): Map[String, AnyRef] =
+    map.map { case (k, v) => k -> v.asInstanceOf[AnyRef] }
 
-  private def assertNotContains[A <: AnyRef, B <: AnyRef](left: A, right: B)(implicit loc: Location) =
-    assertNotEquals(Engine.evaluateToString("{% if left contains right %}yes{% endif %}", Map("left" -> left, "right" -> right)), "yes")
+  private def assertContains[A, B](left: A, right: B)(implicit loc: Location) =
+    assertEquals(Engine.evaluateToString("{% if left contains right %}yes{% endif %}", autobox(Map("left" -> left, "right" -> right))), "yes")
+
+  private def assertNotContains[A, B](left: A, right: B)(implicit loc: Location) =
+    assertNotEquals(Engine.evaluateToString("{% if left contains right %}yes{% endif %}", autobox(Map("left" -> left, "right" -> right))), "yes")
+
+  // needed for scala 2.12, which gets consfused by some of `util.List.of` signatures
+  private def javaList[T](xs: T*) = util.List.of(xs: _*)
 
   test("simple collection contains expression") {
     assertContains(List(1, 2, 3), 2)
@@ -26,9 +32,9 @@ class ExpressionSuite extends munit.FunSuite {
     assertNotContains(mutable.Set(1, 2, 3), 4)
     assertNotContains(mutable.Set(1, 2, 3), "2")
 
-    assertContains(util.List.of(1, 2, 3), 2)
-    assertNotContains(util.List.of(1, 2, 3), 4)
-    assertNotContains(util.List.of(1, 2, 3), "2")
+    assertContains(javaList(1, 2, 3), 2)
+    assertNotContains(javaList(1, 2, 3), 4)
+    assertNotContains(javaList(1, 2, 3), "2")
 
     assertContains(List(Data("a")), Data("a"))
     assertNotContains(List(Data("a")), Data(1))
@@ -47,17 +53,17 @@ class ExpressionSuite extends munit.FunSuite {
     assertContains(List(1, 2, 3), mutable.Set(1, 3))
     assertNotContains(List(1, 2, 3), mutable.Set(1, 4))
 
-    assertContains(util.List.of(1, 2, 3), Set(2))
-    assertContains(util.List.of(1, 2, 3), Set(1, 3))
-    assertNotContains(util.List.of(1, 2, 3), Set(1, 4))
+    assertContains(javaList(1, 2, 3), Set(2))
+    assertContains(javaList(1, 2, 3), Set(1, 3))
+    assertNotContains(javaList(1, 2, 3), Set(1, 4))
 
-    assertContains(List(1, 2, 3), util.List.of(2))
-    assertContains(List(1, 2, 3), util.List.of(1, 3))
-    assertNotContains(List(1, 2, 3), util.List.of(1, 4))
+    assertContains(List(1, 2, 3), javaList(2))
+    assertContains(List(1, 2, 3), javaList(1, 3))
+    assertNotContains(List(1, 2, 3), javaList(1, 4))
 
-    assertContains(util.List.of(1, 2, 3), util.List.of(2))
-    assertContains(util.List.of(1, 2, 3), util.List.of(1, 3))
-    assertNotContains(util.List.of(1, 2, 3), util.List.of(1, 4))
+    assertContains(javaList(1, 2, 3), javaList(2))
+    assertContains(javaList(1, 2, 3), javaList(1, 3))
+    assertNotContains(javaList(1, 2, 3), javaList(1, 4))
   }
 
   test("simple map contains expression") {
@@ -82,6 +88,6 @@ class ExpressionSuite extends munit.FunSuite {
     assertNotEquals(Engine.evaluateToString("{% if [1, 2] contains a %}yes{% endif %}", Map("a" -> List(3))), "yes")
 
     assertEquals(Engine.evaluateToString("""{% if {"a": 1} contains a %}yes{% endif %}""", Map("a" -> "a")), "yes")
-    assertNotEquals(Engine.evaluateToString("""{% if {"a": 1} contains a %}yes{% endif %}""", Map("a" -> 7)), "yes")
+    assertNotEquals(Engine.evaluateToString("""{% if {"a": 1} contains a %}yes{% endif %}""", Map("a" -> Int.box(7))), "yes")
   }
 }

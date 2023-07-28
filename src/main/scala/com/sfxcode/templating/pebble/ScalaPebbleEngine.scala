@@ -11,7 +11,7 @@ import com.sfxcode.templating.pebble.extension.ScalaExtension
 
 import scala.jdk.CollectionConverters._
 
-class ScalaPebbleEngine(useStringLoader: Boolean = false, globalContext: Map[String, AnyRef] = Map()) {
+class ScalaPebbleEngine(useStringLoader: Boolean, globalContext: Map[String, AnyRef]) {
 
   private val PebbleBuilder             = new PebbleEngine.Builder()
   private var engine: Option[PebbleEngine] = None
@@ -63,4 +63,9 @@ class ScalaPebbleEngine(useStringLoader: Boolean = false, globalContext: Map[Str
     writer
   }
 
+}
+
+object ScalaPebbleEngine {
+  def apply(useStringLoader: Boolean = false, globalContext: Map[String, AnyRef] = Map()) =
+    new ScalaPebbleEngine(useStringLoader, globalContext)
 }
