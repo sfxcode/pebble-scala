@@ -9,12 +9,13 @@ class PebbleTestSuite extends munit.FunSuite {
 
   test("evaluate master") {
     val buffer: ArrayBuffer[String] = new ArrayBuffer()
-    val context                     = Map("list" -> List(), "map" -> List(), "option" -> None, "buffer" -> buffer)
+    val context                     = Map("list" -> List(), "map" -> Map(), "option" -> None, "buffer" -> buffer, "set" -> Set())
     val evaluated                   = Engine.evaluateToString("templates/test/empty.peb", context)
     assert(evaluated.contains("emptyList"))
     assert(evaluated.contains("emptyMap"))
     assert(evaluated.contains("emptyOption"))
     assert(evaluated.contains("emptyBuffer"))
+    assert(evaluated.contains("emptySet"))
   }
 
 }
