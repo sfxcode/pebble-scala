@@ -17,11 +17,9 @@ case class EmptyTest() extends Test {
   ): Boolean =
     input match {
       case s: String               => s.isEmpty
-      case option: Option[_]       => option.isEmpty
       case col: util.Collection[_] => col.isEmpty
       case map: util.Map[_, _]     => map.isEmpty
-      case it: Iterator[_]         => it.isEmpty
-      case Nil                     => true
+      case it: IterableOnce[_]     => it.iterator.isEmpty
       case _: Any                  => false
       case _                       => true
     }

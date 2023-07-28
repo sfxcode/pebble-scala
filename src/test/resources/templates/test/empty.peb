@@ -15,5 +15,8 @@
 {% if buffer is empty %}
 <title>emptyBuffer</title>
 {% endif %}
+{% if set is empty %}
+<title>emptySet</title>
+{% endif %}
 </body>
 </html>
