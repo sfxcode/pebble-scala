@@ -11,12 +11,22 @@ import com.sfxcode.templating.pebble.extension.ScalaExtension
 
 import scala.jdk.CollectionConverters._
 
-case class ScalaPebbleEngine(useStringLoader: Boolean = false, globalContext: Map[String, AnyRef] = Map()) {
+class ScalaPebbleEngine(useStringLoader: Boolean, globalContext: Map[String, AnyRef]) {
 
   private val PebbleBuilder             = new PebbleEngine.Builder()
   private var engine: Option[PebbleEngine] = None
 
-  var scalaExtension: ScalaExtension = new ScalaExtension(globalContext)
+  PebbleBuilder
+    .extension(getExtension)
+    .allowOverrideCoreOperators(true)
+
+  if (useStringLoader) {
+    PebbleBuilder.loader(new StringLoader())
+  }
+
+  def getExtension: Extension =
+    new ScalaExtension(globalContext)
+
   def getBuilder: PebbleEngine.Builder = {
     if (engine.isDefined)
       throw new IllegalAccessError("access ot builder after engine initialization is not permitted")
@@ -25,10 +35,7 @@ case class ScalaPebbleEngine(useStringLoader: Boolean = false, globalContext: Ma
 
   def getEngine: PebbleEngine = {
     if (engine.isEmpty) {
-      PebbleBuilder.extension(scalaExtension)
-      if (useStringLoader)
-        getBuilder.loader(new StringLoader())
-      engine = Some(PebbleBuilder.build())
+      engine = Some(getBuilder.build())
     }
     engine.get
   }
@@ -56,4 +63,9 @@ case class ScalaPebbleEngine(useStringLoader: Boolean = false, globalContext: Ma
     writer
   }
 
+}
+
+object ScalaPebbleEngine {
+  def apply(useStringLoader: Boolean = false, globalContext: Map[String, AnyRef] = Map()) =
+    new ScalaPebbleEngine(useStringLoader, globalContext)
 }
