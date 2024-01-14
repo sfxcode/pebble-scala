@@ -31,15 +31,15 @@ resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repos
 
 // Test dependencies
 
-libraryDependencies += "org.scalameta" %% "munit" % "1.0.0-M8" % Test
+libraryDependencies += "org.scalameta" %% "munit" % "1.0.0-M10" % Test
 
-libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.4.8" % Test
+libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.4.14" % Test
 
-libraryDependencies += "joda-time" % "joda-time" % "2.12.5" % Test
+libraryDependencies += "joda-time" % "joda-time" % "2.12.6" % Test
 
 // Runtime dependencies
 
-libraryDependencies += "io.pebbletemplates" % "pebble" % "3.2.1"
+libraryDependencies += "io.pebbletemplates" % "pebble" % "3.2.2"
 
 libraryDependencies += "org.scala-lang.modules" %% "scala-collection-compat" % "2.11.0"
 
